@@ -19,6 +19,7 @@ export const StyledHeaderContentDiv = styled.nav`
   flex-direction: column;
   background-color: #ffef00;
   padding: 4px;
+  width: 100%;
 `;
 
 export const StyledContentTabs = styled.div`
@@ -29,25 +30,25 @@ export const StyledContentTabs = styled.div`
 
 export const StyledContentTabsTop = styled.div`
   width: 100%;
-  height: 100px;
+  height: 110px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #27d1f4;
+  background-color: #000000;
   padding: 5px;
   border-radius: 5px;
 `;
 
 export const StyledHeaderImg = styled.img`
-  width: 100px;
-  height: 100px;
-  justify-content: flex-start;
+  width: 95px;
+  height: 85px;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
 `;
 
 export const StyledHeaderMainTitle = styled.h1`
-  color: #000000;
+  color: #ffff;
   justify-content: center;
   align-items: center;
   font-size: 45px;
@@ -58,15 +59,15 @@ export const StyledHeaderButton = styled.button`
   justify-content: center;
   align-items: center;
   border: none;
-  border-radius:25%;
-  background-color: #27d1f4;
+  border-radius: 25%;
+  background-color: #000000;
   width: 7%;
   height: 70%;
   padding: 5px;
   cursor: pointer;
 
   &:hover {
-    background-color: white;
+    background-color: #27d1f4;
   }
 `;
 

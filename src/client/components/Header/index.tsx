@@ -16,11 +16,11 @@ const Header = () => {
       <StyledHeaderContentDiv>
         <StyledContentTabsTop>
           <StyledLink to="/">
-            <StyledHeaderImg src="https://media-exp1.licdn.com/dms/image/C4D12AQGb8jQRsmTXFg/article-cover_image-shrink_720_1280/0/1525880169356?e=1652918400&v=beta&t=caRknVNjPSaYUWiSf1ls4Qz2SXBbgdlsCd-aVtXZ658" />
+            <StyledHeaderImg src="https://cdn.discordapp.com/attachments/832239784244150292/964552477112401990/Cyberpunk_2077_favicon.png" />
           </StyledLink>
           <StyledHeaderMainTitle>BUBBLE STORE</StyledHeaderMainTitle>
           <StyledHeaderButton>
-            <AiOutlineShoppingCart size="4rem" />
+            <AiOutlineShoppingCart color="white" size="4rem" />
           </StyledHeaderButton>
         </StyledContentTabsTop>
         <StyledContentTabs>
