@@ -27,7 +27,7 @@
       "2": "Quadra"
     }
   },
-  "0003": {
+  "00003": {
     "id": 3,
     "name": "Aerondight S9 Guinevere",
     "price": 225000.0,
@@ -41,7 +41,7 @@
       "2": "Rayfield"
     }
   },
-  "0004": {
+  "00004": {
     "id": 4,
     "name": "Rayfield Caliburn",
     "price": 157000.0,
@@ -53,7 +53,7 @@
       "2": "Rayfield"
     }
   },
-  "0005": {
+  "00005": {
     "id": 5,
     "name": "Mizutani Shion Coyote",
     "price": 77000.0,
@@ -67,7 +67,7 @@
       "2": "Mizutani"
     }
   },
-  "0006": {
+  "00006": {
     "id": 6,
     "name": "Quadra Type-66 Javelina",
     "price": 99000.0,
@@ -81,7 +81,7 @@
       "2": "Quadra"
     }
   },
-  "0007": {
+  "00007": {
     "id": 7,
     "name": "Porsche Turbo 911 II (930)",
     "price": 200000.0,
@@ -95,7 +95,7 @@
       "2": "Porsche"
     }
   },
-  "0008": {
+  "00008": {
     "id": 8,
     "name": "Quadra Type-66 Avenger",
     "price": 75000.0,

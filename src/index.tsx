@@ -6,6 +6,7 @@ import HomePage from "./client/components/HomePage";
 import Vehicles from "./client/components/Vehicles";
 import Cars from "./client/components/Cars";
 import Motorcycles from "./client/components/Motorcycles";
+import VehiclePage from "./client/components/VehiclePage";
 
 render(
   <React.StrictMode>
@@ -16,6 +17,9 @@ render(
           <Route path="vehicles" element={<Vehicles />} />
           <Route path="cars" element={<Cars />} />
           <Route path="motorcycles" element={<Motorcycles />} />
+          <Route path="/vehicle">
+            <Route path=":key" element={<VehiclePage />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

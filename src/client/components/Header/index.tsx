@@ -20,7 +20,7 @@ const Header = () => {
           </StyledLink>
           <StyledHeaderMainTitle>BUBBLE STORE</StyledHeaderMainTitle>
           <StyledHeaderButton>
-            <AiOutlineShoppingCart color="white" size="4rem" />
+            <AiOutlineShoppingCart color="#ffef00" size="4rem" />
           </StyledHeaderButton>
         </StyledContentTabsTop>
         <StyledContentTabs>

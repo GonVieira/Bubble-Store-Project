@@ -1,16 +1,21 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import vehicles from "../../../vehicles.json";
 import {
   StyledImg,
   StyledProductListBody,
   StyledProductContainer,
   StyledProductStatsComponent,
+  SyledTitle,
+  StyledVehicleStatName,
+  StyledVehicleStatPrice,
 } from "../GlobalStyledComponents/index";
 import Pagination from "../../utils/Pagination/index";
 
 const Product = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
+  const navigate = useNavigate();
 
   //GET CURRENT POSTS
   const indexOfLastPost = currentPage * postsPerPage;
@@ -20,35 +25,35 @@ const Product = () => {
     indexOfLastPost
   );
 
-  //CHANGE PAGES
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
   return (
     <>
-      <h1>This is Vehicles page!</h1>
+      <SyledTitle>Vehicles page</SyledTitle>
       <StyledProductListBody>
-        {currentPosts.map(([_, value]: any) => {
+        {currentPosts.map(([key, value]: any) => {
           return (
-            <StyledProductContainer>
+            <StyledProductContainer
+              onClick={() => navigate(`/vehicle/${key}`)}
+            >
               <StyledImg alt="foto ganda fixe" src={value.img[0]} />
               <StyledProductStatsComponent>
-                <p>{value.name}</p>
-                <p>
+                <StyledVehicleStatName>{value.name}</StyledVehicleStatName>
+                <StyledVehicleStatPrice>
                   Price:{" "}
                   {value.price
                     .toLocaleString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   €
-                </p>
+                </StyledVehicleStatPrice>
               </StyledProductStatsComponent>
             </StyledProductContainer>
           );
         })}
       </StyledProductListBody>
       <Pagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
         postsPerPage={postsPerPage}
         totalPosts={Object.entries(vehicles).length}
-        paginate={paginate}
       />
     </>
   );

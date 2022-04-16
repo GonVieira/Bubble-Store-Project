@@ -1,6 +1,6 @@
 import React from "react";
 
-const Food = () =>{
+const Motorcycles = () =>{
 
     return (
         <>
@@ -9,4 +9,4 @@ const Food = () =>{
     )
 }
 
-export default Food;
+export default Motorcycles;

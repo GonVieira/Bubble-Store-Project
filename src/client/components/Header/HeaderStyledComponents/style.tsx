@@ -8,7 +8,7 @@ export const StyledLink = styled(NavLink)`
   font-size: 26px;
 
   &:hover {
-    color: #27d1f4;
+    color: #0ac3db;
   }
 `;
 
@@ -17,7 +17,7 @@ export const StyledHeaderContentDiv = styled.nav`
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  background-color: #ffef00;
+  background-color: #04DAF6;
   padding: 4px;
   width: 100%;
 `;
@@ -48,7 +48,7 @@ export const StyledHeaderImg = styled.img`
 `;
 
 export const StyledHeaderMainTitle = styled.h1`
-  color: #ffff;
+  color: #ffef00;
   justify-content: center;
   align-items: center;
   font-size: 45px;
@@ -67,7 +67,7 @@ export const StyledHeaderButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #27d1f4;
+    background-color: #554B41;
   }
 `;
 

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const SyledTitle = styled.h1`
-  font-size: 50px;
-  padding: 20px;
-  margin-bottom: 20px;
+  font-size: 35px;
+  padding: 10px;
+  margin-top: 10px;
 `;
 
 export const StyledImg = styled.img`
@@ -37,7 +37,6 @@ export const StyledProductContainer = styled.div`
   padding: 10px;
   width: 380px;
   height: 250px;
-  
 `;
 
 export const StyledProductStatsComponent = styled.div`
@@ -45,5 +44,16 @@ export const StyledProductStatsComponent = styled.div`
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-  padding: 5px;
+`;
+
+export const StyledVehicleStatName = styled.p`
+  color: #FF003C;
+  padding: 2px;
+  font-size: 20px;
+  font-weight: bold;
+`
+
+export const StyledVehicleStatPrice = styled.p`
+  color: #FF003C
+
 `;
