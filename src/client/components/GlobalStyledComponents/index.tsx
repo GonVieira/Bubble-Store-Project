@@ -12,9 +12,13 @@ export const StyledImg = styled.img`
   align-items: center;
   width: 100%;
   height: 100%;
+  padding: 8px;
+  transition: transform 0.4s ease;
+  transform-origin: 50% 50%;
 
   &:hover {
-    border: 1px solid #ffef00;
+    transform: scale(1.1);
+    width: 100%;
   }
 `;
 
@@ -37,6 +41,7 @@ export const StyledProductContainer = styled.div`
   padding: 10px;
   width: 380px;
   height: 250px;
+  overflow: hidden;
 `;
 
 export const StyledProductStatsComponent = styled.div`
@@ -47,13 +52,12 @@ export const StyledProductStatsComponent = styled.div`
 `;
 
 export const StyledVehicleStatName = styled.p`
-  color: #FF003C;
+  color: #ff003c;
   padding: 2px;
   font-size: 20px;
   font-weight: bold;
-`
+`;
 
 export const StyledVehicleStatPrice = styled.p`
-  color: #FF003C
-
+  color: #ff003c;
 `;

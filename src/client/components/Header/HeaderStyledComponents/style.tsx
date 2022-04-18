@@ -6,9 +6,11 @@ export const StyledLink = styled(NavLink)`
   color: #000000;
   padding: 20px;
   font-size: 26px;
+  font-family: cyberpunk;
+  text-shadow: 3px 3px 1px yellow;
 
   &:hover {
-    color: #0ac3db;
+    text-shadow: 3px 3px 1px #FF003C;
   }
 `;
 
@@ -49,9 +51,11 @@ export const StyledHeaderImg = styled.img`
 
 export const StyledHeaderMainTitle = styled.h1`
   color: #ffef00;
+  font-family: cyberpunk;
   justify-content: center;
   align-items: center;
   font-size: 45px;
+  text-shadow: 1px 1px #04daf6, 4px 4px 1px rgb(90, 88, 85);
 `;
 
 export const StyledHeaderButton = styled.button`

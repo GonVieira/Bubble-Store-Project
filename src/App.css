@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Arial";
+  font-family: "Open Sans";
 }
 
 html {
@@ -30,4 +30,9 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+@font-face {
+  font-family: "cyberpunk";
+  src: local('cyberpunk'), url(./Fonts/cyberpunk-webfont.woff2) format("woff2"), url(./Fonts/cyberpunk-webfont.woff) format("woff");
 }
