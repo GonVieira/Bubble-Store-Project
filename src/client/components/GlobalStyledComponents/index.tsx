@@ -4,6 +4,7 @@ export const SyledTitle = styled.h1`
   font-size: 35px;
   padding: 10px;
   margin-top: 10px;
+  color: #04daf6;
 `;
 
 export const StyledImg = styled.img`
@@ -15,6 +16,7 @@ export const StyledImg = styled.img`
   padding: 8px;
   transition: transform 0.4s ease;
   transform-origin: 50% 50%;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.1);

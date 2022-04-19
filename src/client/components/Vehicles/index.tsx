@@ -6,7 +6,6 @@ import {
   StyledProductListBody,
   StyledProductContainer,
   StyledProductStatsComponent,
-  SyledTitle,
   StyledVehicleStatName,
   StyledVehicleStatPrice,
 } from "../GlobalStyledComponents/index";
@@ -27,7 +26,6 @@ const Product = () => {
 
   return (
     <>
-      <SyledTitle>Vehicles page</SyledTitle>
       <StyledProductListBody>
         {currentPosts.map(([key, value]: any) => {
           return (
