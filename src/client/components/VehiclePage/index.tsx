@@ -46,10 +46,13 @@ const VehiclePage = () => {
 
   vehicleAngleImages.forEach((item, index) => {
     vehicleAngleImagesList.push(
-      <StyledOtherPhotos alt="xisde" src={product[0][1].img[index+1]} onClick={() => setSelectedImg(index + 1)}></StyledOtherPhotos>
-    )
-  })
-
+      <StyledOtherPhotos
+        alt="xisde"
+        src={product[0][1].img[index + 1]}
+        onClick={() => setSelectedImg(index + 1)}
+      ></StyledOtherPhotos>
+    );
+  });
 
   return (
     <>
@@ -85,11 +88,10 @@ const VehiclePage = () => {
                 <StyledVehicleDescriptionText>
                   {value.description}
                 </StyledVehicleDescriptionText>
-              </StyledVehicleTextDiv>
-
-              <StyledCheckoutBtnDiv>
-                <StyledCheckoutButton>Checkout</StyledCheckoutButton>
+                <StyledCheckoutBtnDiv>
+                <StyledCheckoutButton>Add to cart!</StyledCheckoutButton>
               </StyledCheckoutBtnDiv>
+              </StyledVehicleTextDiv>
             </StyledVehicleDetailsDiv>
           </StyledProductPageBody>
         );

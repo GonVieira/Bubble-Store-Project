@@ -4,7 +4,7 @@ export const SyledTitle = styled.h1`
   font-size: 35px;
   padding: 10px;
   margin-top: 10px;
-  color: #04daf6;
+  color: white;
 `;
 
 export const StyledImg = styled.img`

@@ -65,13 +65,13 @@ export const StyledHeaderButton = styled.button`
   border: none;
   border-radius: 25%;
   background-color: #000000;
-  width: 7%;
+  width: 5%;
   height: 70%;
   padding: 5px;
   cursor: pointer;
 
   &:hover {
-    background-color: #554B41;
+    background-color: #FF003C;
   }
 `;
 
