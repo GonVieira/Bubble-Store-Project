@@ -16,6 +16,7 @@ export const StyledPagButton = styled.button `
     background: none;
     padding: 0px;
     color: #FF003C;
+    cursor: pointer;
 
     &:hover {
         color: #04DAF6;
