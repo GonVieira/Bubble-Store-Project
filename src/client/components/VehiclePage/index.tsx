@@ -63,7 +63,6 @@ const VehiclePage = () => {
               {value.category[0]} &#62; {value.category[1]} &#62;{" "}
               {value.category[2]}
             </StyledProductPageTopText>
-
             <SyledTitle>{value.name}</SyledTitle>
             <StyledVehicleDetailsDiv>
               <StyledProductGalleryDiv>

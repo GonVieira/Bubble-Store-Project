@@ -17,7 +17,7 @@ render(
           <Route path="vehicles" element={<Vehicles />} />
           <Route path="cars" element={<Cars />} />
           <Route path="motorcycles" element={<Motorcycles />} />
-          <Route path="/vehicle">
+          <Route path="/vehicles">
             <Route path=":key" element={<VehiclePage />} />
           </Route>
         </Route>
