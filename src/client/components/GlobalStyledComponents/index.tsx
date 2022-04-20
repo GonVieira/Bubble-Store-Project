@@ -32,7 +32,8 @@ export const StyledProductListBody = styled.div`
   flex-wrap: wrap;
   color: #f4f4f4;
   padding: 20px;
-  width: 70%;
+  width: 80%;
+  margin-top: 10px;
 `;
 
 export const StyledProductContainer = styled.div`
@@ -62,4 +63,89 @@ export const StyledVehicleStatName = styled.p`
 
 export const StyledVehicleStatPrice = styled.p`
   color: #ff003c;
+`;
+
+export const StyledFilterContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 25%;
+  padding: 10px;
+  flex-direction: row;
+  margin-top: 10px;
+`
+
+export const StyledFilterOptionButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 100%;
+  height: 60%;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #000000;
+  border: 2px solid rgba(0, 0, 0, 0.0);
+  background-color: #F3E600;
+  transition: 0.3s ease;
+  margin-left: 10px;
+
+  &:hover {
+    border: 2px solid #04DAF6;
+    box-shadow: 3px 3px #04DAF6;
+  }
+`
+
+export const StyledFilterAndCarsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  flex-direction: row;
+`
+
+//DROPDOWN 
+export const DropDownContainer = styled("div")`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 30%;
+  margin: 10px;
+`;
+
+export const DropDownHeader = styled("div")`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  width: 20%;
+  height: 60%;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #000000;
+  border: 2px solid rgba(0, 0, 0, 0.0);
+  background-color: #F3E600;
+  transition: 0.3s ease;
+  margin-left: 10px;
+
+  &:hover {
+    border: 2px solid #ff003c;
+    box-shadow: 3px 3px #ff003c;
+  }
+`;
+
+export const DropDownListContainer = styled.div`
+`;
+
+export const DropDownList = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

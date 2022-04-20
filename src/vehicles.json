@@ -110,9 +110,29 @@
       "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/12/quadra-type-66-avenger-photo-mode.jpg"
     ],
     "category": {
-      "0":"Car",
+      "0": "Car",
       "1": "Sport",
       "2": "Quadra"
+    }
+  },
+  "00009": {
+    "id": 9,
+    "name": "Yaiba Kusanagi CT-3X",
+    "price": 58000.0,
+    "description": "The Yaiba Kusanagi CT-3X is the fastest, and unsurprsingly, the most expensive motorcycle, originally built in collaboration with the Arasaka Corporation. \n Its sleek, aerodynamic frame conceals a wickedly powerful engine. \n Ideally, anyone riding one should be chipped with reflex boosters to avoid flying into a traffic light at 160KM/H when making a sharp turn.",
+    "img": [
+      "https://cdn.discordapp.com/attachments/965723260824195102/966101774589108294/Screenshot_2022-04-19_at_23.23.10.png",
+      "https://cdn.discordapp.com/attachments/965723260824195102/966102619019968512/Yaiba_Kusanagi_CT-3X_Front.webp",
+      "https://cdn.discordapp.com/attachments/965723260824195102/966102620282449920/Yaiba_Kusanagi_CT-3X_Top.webp",
+      "https://cdn.discordapp.com/attachments/965723260824195102/966102619879784469/Yaiba_Kusanagi_CT-3X_Side.webp",
+      "https://cdn.discordapp.com/attachments/965723260824195102/966102619355504701/Yaiba_Kusanagi_CT-3X_Rear.webp",
+      "https://cdn.discordapp.com/attachments/965723260824195102/966102618789261332/Yaiba_Kusanagi_CT-3X_Front_quarter.webp",
+      "https://cdn.discordapp.com/attachments/965723260824195102/966102618487279696/Yaiba_Kusanagi_CT-3X_Dashboard.webp"
+    ],
+    "category": {
+      "0": "Motorcycle",
+      "1": "Road",
+      "2": "Yaiba"
     }
   }
 }

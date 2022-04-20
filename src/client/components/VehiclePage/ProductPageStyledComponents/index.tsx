@@ -82,17 +82,16 @@ export const StyledVehicleTextDiv = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  padding: 25px;
+  padding: 15px;
   width: 40%;
   height: fit-content;
-  margin-bottom: 120px;
 `;
 
 export const StyledVehiclePriceText = styled.h2`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   color: #ff003c;
   font-size: 34px;
 `;
