@@ -26,8 +26,8 @@ const Header = () => {
         <StyledContentTabs>
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="/vehicles">All</StyledLink>
-          <StyledLink to="/cars">Cars</StyledLink>
-          <StyledLink to="/motorcycles">Motorcycles</StyledLink>
+          <StyledLink to="/vehicles/car">Cars</StyledLink>
+          <StyledLink to="/vehicles/motorcycle">Motorcycles</StyledLink>
         </StyledContentTabs>
       </StyledHeaderContentDiv>
     </>

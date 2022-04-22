@@ -3,7 +3,7 @@ import {
   StyledPagButton,
   SyledPaginationDiv,
   StyledNumberText,
-} from "../Pagination/PaginationStyledComponents/style";
+} from "./PaginationStyledComponents/style";
 
 const Pagination = ({
   currentPage,

@@ -7,7 +7,7 @@ export const StyledLink = styled(NavLink)`
   padding: 20px;
   font-size: 26px;
   font-family: cyberpunk;
-  text-shadow: 3px 3px 1px yellow;
+  text-shadow: 3px 3px 1px #ffef00;
 
   &:hover {
     text-shadow: 3px 3px 1px #FF003C;
