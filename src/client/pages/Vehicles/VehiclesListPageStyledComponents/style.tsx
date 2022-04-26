@@ -26,6 +26,7 @@ export const StyledProductListBody = styled.div`
   color: #f4f4f4;
   padding: 20px;
   width: 80%;
+  height: 100%;
   margin-top: 10px;
 `;
 
@@ -94,10 +95,10 @@ export const StyledFilterOptionButton = styled.button`
 
 export const StyledFilterAndCarsContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
-  width: 100%;
+  width: 95%;
   flex-direction: row;
 `
 

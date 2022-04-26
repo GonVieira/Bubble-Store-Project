@@ -11,6 +11,7 @@ export const StyledBedCrumDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 `
 export const StyledBedCrumAnchor = styled.a`
   display: flex;
@@ -27,7 +28,6 @@ export const StyledBedCrumAnchor = styled.a`
     color: #04daf6;
   }
 `
-
 export const StyledBedCrumArrow = styled.h2`
   font-size: 20px;
   color: #ff003c;

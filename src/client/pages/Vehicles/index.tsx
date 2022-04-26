@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import vehicles from "../../../vehicles.json";
+import FilterComponent from "../../components/FilterComponent/index";
 import {
   StyledImg,
   StyledProductListBody,
@@ -8,13 +9,7 @@ import {
   StyledProductStatsComponent,
   StyledVehicleStatName,
   StyledVehicleStatPrice,
-  StyledFilterContainer,
   StyledFilterAndCarsContainer,
-  StyledFilterOptionButton,
-  DropDownContainer,
-  DropDownHeader,
-  DropDownListContainer,
-  DropDownList,
 } from "./VehiclesListPageStyledComponents/style";
 import {
   StyledBedCrumDiv,
@@ -28,10 +23,8 @@ const Product = () => {
   const [vehiclesArray, setVehiclesArray] = useState(Object.entries(vehicles));
   const [postsPerPage] = useState(6);
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
   const [sortType, setSortType] = useState("Default Sort");
   const { category1, category2, category3 } = useParams();
-  const toggling = () => setIsOpen(!isOpen);
 
   useEffect(() => {
     //RESET PAGE
@@ -94,50 +87,6 @@ const Product = () => {
     }
   }, [category1, category2, category3]);
 
-  //SORTS
-  const orderByPriceAsc = () => {
-    let sortedArray = vehiclesArray;
-
-    sortedArray.sort((a, b) => {
-      return a[1].price - b[1].price;
-    });
-    setVehiclesArray([...sortedArray]);
-    setIsOpen(false);
-    setSortType("Price Asc");
-  };
-
-  const orderByDesc = () => {
-    let sortedArray = vehiclesArray;
-
-    sortedArray.sort((a, b) => {
-      return b[1].price - a[1].price;
-    });
-    setVehiclesArray([...sortedArray]);
-    setIsOpen(false);
-    setSortType("Price Desc");
-  };
-
-  const nameOrderByA = () => {
-    let sortedArray = vehiclesArray;
-
-    sortedArray.sort((a, b) => {
-      return a[1].name.localeCompare(b[1].name);
-    });
-    setVehiclesArray([...sortedArray]);
-    setIsOpen(false);
-    setSortType("Name A-Z");
-  };
-
-  const nameOrderByZ = () => {
-    let sortedArray = vehiclesArray;
-
-    sortedArray.sort((a, b) => {
-      return b[1].name.localeCompare(a[1].name);
-    });
-    setVehiclesArray([...sortedArray]);
-    setIsOpen(false);
-    setSortType("Name Z-A");
-  };
 
   //GET CURRENT POSTS
   const indexOfLastPost = currentPage * postsPerPage;
@@ -145,9 +94,7 @@ const Product = () => {
   const currentPosts = vehiclesArray.slice(indexOfFirstPost, indexOfLastPost);
 
   //BEDCRUM
-  console.log(category1, category2, category3);
   const bedCrum = () => {
-    console.log(category3);
     if (category3 !== undefined) {
       return (
         <>
@@ -170,7 +117,6 @@ const Product = () => {
       );
     }
     if (category2 !== undefined) {
-      console.log(category2);
       return (
         <>
           <StyledBedCrumAnchor onClick={() => navigate(``)}>
@@ -198,9 +144,7 @@ const Product = () => {
     } else {
       return (
         <>
-          <StyledBedCrumAnchor>
-            Vehicles
-          </StyledBedCrumAnchor>
+          <StyledBedCrumAnchor>Vehicles</StyledBedCrumAnchor>
         </>
       );
     }
@@ -209,30 +153,8 @@ const Product = () => {
   return (
     <>
       <StyledBedCrumDiv>{bedCrum()}</StyledBedCrumDiv>
-      <DropDownContainer>
-        <DropDownHeader onClick={toggling}>{sortType}</DropDownHeader>
-        {isOpen && (
-          <DropDownListContainer>
-            <DropDownList>
-              <StyledFilterContainer>
-                <StyledFilterOptionButton onClick={orderByPriceAsc}>
-                  Price &#8595;
-                </StyledFilterOptionButton>
-                <StyledFilterOptionButton onClick={orderByDesc}>
-                  Price &#8595;
-                </StyledFilterOptionButton>
-                <StyledFilterOptionButton onClick={nameOrderByA}>
-                  Name A-Z
-                </StyledFilterOptionButton>
-                <StyledFilterOptionButton onClick={nameOrderByZ}>
-                  Name Z-A
-                </StyledFilterOptionButton>
-              </StyledFilterContainer>
-            </DropDownList>
-          </DropDownListContainer>
-        )}
-      </DropDownContainer>
       <StyledFilterAndCarsContainer>
+        <FilterComponent sortType={sortType} setSortType={setSortType} vehiclesArray={vehiclesArray} setVehiclesArray={setVehiclesArray}/>
         <StyledProductListBody>
           {currentPosts.map(([key, value]: any) => {
             return (
@@ -253,14 +175,14 @@ const Product = () => {
               </StyledProductContainer>
             );
           })}
+          <Pagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            postsPerPage={postsPerPage}
+            totalPosts={vehiclesArray.length}
+          />
         </StyledProductListBody>
       </StyledFilterAndCarsContainer>
-      <Pagination
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        postsPerPage={postsPerPage}
-        totalPosts={vehiclesArray.length}
-      />
     </>
   );
 };
