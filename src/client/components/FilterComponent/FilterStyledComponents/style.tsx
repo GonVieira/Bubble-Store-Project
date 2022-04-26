@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-export const StyledFilterButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 7%;
-  height: 450px;
-  padding: 5px;
-  margin-left: 20px;
-`;
 
 export const StyledFilterComponentTitleDiv = styled.div`
   display: flex;
@@ -18,12 +9,12 @@ export const StyledFilterComponentTitleDiv = styled.div`
   background-color: #000000;
 `
 export const StyledFilterComponentTitle = styled.h1`
-  text-decoration: none;
-  color: #000000;
-  padding: 20px;
-  font-size: 26px;
+  color: #ffef00;
   font-family: cyberpunk;
-  text-shadow: 3px 3px 1px #ffef00;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  text-shadow: 1px 1px #04daf6, 4px 4px 1px rgb(90, 88, 85);
 `
 
 export const StyledfilterButton = styled.button`
@@ -83,7 +74,7 @@ export const StyledFilterDiv = styled.div`
 `;
 
 export const StyledFilterCategoryText = styled.h2`
-  font-size: 16px;
+  font-size: 20px;
   width: 50%;
   text-align: center;
 `;
@@ -103,7 +94,7 @@ export const StyledButton = styled.button`
   padding: 1px;
   cursor: pointer;
   border: none;
-  font-size: 12px;
+  font-size: 18px;
 `;
 
 //DROPRIGHT
@@ -133,7 +124,7 @@ export const StyledDropRightOption = styled.li`
   display: block;
   padding: 5px;
   border-radius: 5px;
-  font-size: 10px;
+  font-size: 18px;
   cursor: pointer;
 
   &:hover {
@@ -163,7 +154,7 @@ export const StyledDropdownOption = styled.li`
   display: block;
   padding: 5px;
   border-radius: 5px;
-  font-size: 10px;
+  font-size: 18px;
   cursor: pointer;
 
   &:hover {
