@@ -6,6 +6,7 @@ export const SyledPaginationDiv = styled.div `
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    width: 100%
 `
 export const StyledPagButton = styled.button `
     display: flex;
@@ -14,7 +15,6 @@ export const StyledPagButton = styled.button `
     font-size: 20px;
     border:none;
     background: none;
-    padding: 0px;
     color: #FF003C;
     cursor: pointer;
 

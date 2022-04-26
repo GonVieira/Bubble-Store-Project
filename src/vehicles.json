@@ -134,5 +134,25 @@
       "1": "Road",
       "2": "Yaiba"
     }
+  },
+  "00010": {
+    "id": 10,
+    "name": "Brennan Apollo Scorpion",
+    "price": 45000.0,
+    "description": "The Scorpion is a capable off-road motorcycle, that has been modified to remove extra weight. Compared to the original Brennan Apollo, it does not have any luggage mounting compartments and has no front fender. It also has a very short, blue-tinted visor. In addition to the slight mechanical modifications, the Scorpion also features a custom paint and painted-on Aldecaldo decals.",
+    "img": [
+        "https://cyberpunk2077.wiki.fextralife.com/file/Cyberpunk-2077/brennan_apollo_scorpion(side).jpg",
+        "https://cdn.discordapp.com/attachments/965723260824195102/968476830589923348/Brennan_Apollo_Scorpion_Front_quarter.webp",
+        "https://cdn.discordapp.com/attachments/965723260824195102/968476831613345884/Brennan_Apollo_Scorpion_Top.webp",
+        "https://cdn.discordapp.com/attachments/965723260824195102/968476830833184858/Brennan_Apollo_Scorpion_Front.webp",
+        "https://cdn.discordapp.com/attachments/965723260824195102/968476831353303070/Brennan_Apollo_Scorpion_Side.webp",
+        "https://cdn.discordapp.com/attachments/965723260824195102/968476831130976276/Brennan_Apollo_Scorpion_Rear.webp",
+        "https://cdn.discordapp.com/attachments/965723260824195102/968476830363447357/Brennan_Apollo_Scorpion_Dashboard.webp"
+    ],
+    "category": {
+      "0": "Motorcycle",
+      "1": "Off-road",
+      "2": "Brennan"
+    }
   }
 }

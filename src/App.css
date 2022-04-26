@@ -7,9 +7,11 @@
 
 html {
   line-height: 1;
+  height: 100%;
 }
 
 body {
+  height: 100%;
   background-color: #000000;
 }
 
@@ -35,4 +37,12 @@ h1 {
 @font-face {
   font-family: "cyberpunk";
   src: local('cyberpunk'), url(./Fonts/cyberpunk-webfont.woff2) format("woff2"), url(./Fonts/cyberpunk-webfont.woff) format("woff");
+}
+
+#root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
