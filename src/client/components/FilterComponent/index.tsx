@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import vehicles from "../../../vehicles.json";
+import SortComponent from "../SortComponent/index";
 import {
   IoMdArrowDropdown,
   IoMdArrowDropleft,
@@ -16,7 +18,6 @@ import {
   StyledDropdownOption,
   StyledDropdownDiv,
   StyledFilterCategoryText,
-  DropRightDiv,
   StyledDropRightOptionsContainer,
   StyledDropRightOption,
   StyledFilterComponentTitle,
@@ -29,30 +30,32 @@ const FilterComponent = ({
   vehiclesArray,
   setVehiclesArray,
 }: any) => {
-  const [sortIsOpen, setSortIsOpen] = useState(false);
+  const navigate = useNavigate();
   const [filterIsOpen, setFilterIsOpen] = useState(false);
   const [carCategoriesIsOpen, setCarCategoriesIsOpen] = useState(false);
   const [motorcycleCategoriesIsOpen, setMotorcycleCategoriesIsOpen] =
     useState(false);
   const [allVehiclesArray] = useState(Object.entries(vehicles));
-  const [firstLevelCategories, setFirstLevelCategories] = useState<any>([]);
+  //const [firstLevelCategories, setFirstLevelCategories] = useState<any>([]);
   const [carCategory, setCarCategory] = useState<any>([]);
   const [motorcycleCategory, setMotorcycleCategory] = useState<any>([]);
   const [thirdLevelCategories, setThirdLevelCategories] = useState<any>([]);
-  const sortToggling = () => setSortIsOpen(!sortIsOpen);
+  let ref = useRef<any>();
+
   const filterToggling = () => setFilterIsOpen(!filterIsOpen);
 
   //CATEGORIES
   useEffect(() => {
-    let uniqueArray: any[] = [];
+    //let uniqueArray: any[] = [];
     let carCategoriesArray: any[] = [];
     let motorcycleCategoriesArray: any[] = [];
 
     allVehiclesArray.filter(([key, value]: any) => {
+      /*
       if (uniqueArray.indexOf(value.category[0]) === -1) {
         uniqueArray.push(value.category[0]);
       }
-
+*/
       //DISTRIBUTE SECOND LEVEL CATEGORIES IN THEIR ARRAYS
       if (value.category[0] === "Car") {
         if (carCategoriesArray.indexOf(value.category[1]) === -1) {
@@ -67,64 +70,21 @@ const FilterComponent = ({
     });
     setCarCategory([...carCategoriesArray]);
     setMotorcycleCategory([...motorcycleCategoriesArray]);
-    setFirstLevelCategories([...uniqueArray]);
+    //setFirstLevelCategories([...uniqueArray]);
   }, [allVehiclesArray]);
 
-  //SORTS
-  const defaultSort = () => {
-    let sortedArray = vehiclesArray;
-
-    sortedArray.sort((a: any, b: any) => {
-      return a[0] - b[0];
-    });
-    setVehiclesArray([...sortedArray]);
-    setSortIsOpen(false);
-    setSortType("Default Sort");
-  };
-
-  const orderByPriceAsc = () => {
-    let sortedArray = vehiclesArray;
-
-    sortedArray.sort((a: { price: number }[], b: { price: number }[]) => {
-      return a[1].price - b[1].price;
-    });
-    setVehiclesArray([...sortedArray]);
-    setSortIsOpen(false);
-    setSortType("Price Asc");
-  };
-
-  const orderPriceByDesc = () => {
-    let sortedArray = vehiclesArray;
-
-    sortedArray.sort((a: { price: number }[], b: { price: number }[]) => {
-      return b[1].price - a[1].price;
-    });
-    setVehiclesArray([...sortedArray]);
-    setSortIsOpen(false);
-    setSortType("Price Desc");
-  };
-
-  const nameOrderByA = () => {
-    let sortedArray = vehiclesArray;
-
-    sortedArray.sort((a: { name: string }[], b: { name: any }[]) => {
-      return a[1].name.localeCompare(b[1].name);
-    });
-    setVehiclesArray([...sortedArray]);
-    setSortIsOpen(false);
-    setSortType("Name A-Z");
-  };
-
-  const nameOrderByZ = () => {
-    let sortedArray = vehiclesArray;
-
-    sortedArray.sort((a: { name: any }[], b: { name: string }[]) => {
-      return b[1].name.localeCompare(a[1].name);
-    });
-    setVehiclesArray([...sortedArray]);
-    setSortIsOpen(false);
-    setSortType("Name Z-A");
-  };
+  useEffect(() => {
+    const handler = (event: { target: any }) => {
+      if (filterIsOpen && ref.current && !ref.current.contains(event.target)) {
+        setFilterIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", handler);
+    };
+  }, [filterIsOpen]);
 
   return (
     <>
@@ -135,45 +95,16 @@ const FilterComponent = ({
         <StyledTextFieldDiv>
           <StyledInput type="text" placeholder="Search By Name" />
         </StyledTextFieldDiv>
-
+        <SortComponent
+          sortType={sortType}
+          setSortType={setSortType}
+          vehiclesArray={vehiclesArray}
+          setVehiclesArray={setVehiclesArray}
+        />
         <StyledDiv>
-          <StyledFilterCategoryText>Sorted By :</StyledFilterCategoryText>
-          <StyledDropdownDiv>
-            {" "}
-            <StyledButton onClick={sortToggling}>
-              {sortType}{" "}
-              {sortIsOpen ? (
-                <IoMdArrowDropup style={{ verticalAlign: "middle" }} />
-              ) : (
-                <IoMdArrowDropdown style={{ verticalAlign: "middle" }} />
-              )}
-            </StyledButton>
-            {sortIsOpen && (
-              <StyledDropdownOptionsContainer>
-                <StyledDropdownOption onClick={defaultSort}>
-                  Default Sort
-                </StyledDropdownOption>
-                <StyledDropdownOption onClick={orderByPriceAsc}>
-                  Price Asc
-                </StyledDropdownOption>
-                <StyledDropdownOption onClick={orderPriceByDesc}>
-                  Price Desc
-                </StyledDropdownOption>
-                <StyledDropdownOption onClick={nameOrderByA}>
-                  Name Asc
-                </StyledDropdownOption>
-                <StyledDropdownOption onClick={nameOrderByZ}>
-                  Name Desc
-                </StyledDropdownOption>
-              </StyledDropdownOptionsContainer>
-            )}
-          </StyledDropdownDiv>
-        </StyledDiv>
-
-        <StyledDiv>
-          <StyledFilterCategoryText>Filter By:</StyledFilterCategoryText>
-          <StyledDropdownDiv>
-            <StyledButton onClick={filterToggling}>
+          <StyledFilterCategoryText>Filter By :</StyledFilterCategoryText>
+          <StyledDropdownDiv ref={ref}>
+            <StyledButton onClick={() => setFilterIsOpen((prev) => !prev)}>
               Filter
               {filterIsOpen ? (
                 <IoMdArrowDropup style={{ verticalAlign: "middle" }} />
@@ -183,8 +114,11 @@ const FilterComponent = ({
             </StyledButton>
             {filterIsOpen && (
               //CAR BUTTON
-              <StyledDropdownOptionsContainer>
+              <StyledDropdownOptionsContainer
+                onClick={() => setFilterIsOpen((prev) => !prev)}
+              >
                 <StyledDropdownOption
+                  onClick={() => navigate(`/vehicles/car`)}
                   onMouseEnter={(e) => {
                     setCarCategoriesIsOpen(true);
                   }}
@@ -193,11 +127,18 @@ const FilterComponent = ({
                   }}
                 >
                   Car <IoMdArrowDropright style={{ verticalAlign: "middle" }} />
+                  {/*CAR SUBMENU*/}
                   <StyledDropRightOptionsContainer>
                     {carCategoriesIsOpen &&
                       carCategory.map((value: any) => {
                         return (
                           <StyledDropRightOption
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setFilterIsOpen(false);
+                              setCarCategoriesIsOpen(false);
+                              navigate(`car/${value.toLowerCase()}`);
+                            }}
                             onMouseEnter={(e) => {
                               setCarCategoriesIsOpen(true);
                             }}
@@ -213,6 +154,7 @@ const FilterComponent = ({
                 </StyledDropdownOption>
 
                 <StyledDropdownOption
+                  onClick={(e) => navigate(`/vehicles/motorcycle`)}
                   onMouseEnter={(e) => {
                     setMotorcycleCategoriesIsOpen(true);
                   }}
@@ -227,6 +169,12 @@ const FilterComponent = ({
                       motorcycleCategory.map((value: any) => {
                         return (
                           <StyledDropRightOption
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setFilterIsOpen(false);
+                              setMotorcycleCategoriesIsOpen(false);
+                              navigate(`motorcycle/${value.toLowerCase()}`);
+                            }}
                             onMouseEnter={(e) => {
                               setMotorcycleCategoriesIsOpen(true);
                             }}
