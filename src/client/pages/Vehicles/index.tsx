@@ -29,6 +29,7 @@ const Product = () => {
   useEffect(() => {
     //RESET PAGE
     setCurrentPage(1);
+    setSortType("Default Sort");
 
     //CATEGORY 1, CATEGORY 2 and CATEGORY 3
     if (

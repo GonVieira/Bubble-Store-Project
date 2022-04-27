@@ -7,6 +7,8 @@ export const StyledFilterComponentTitleDiv = styled.div`
   align-items: center;
   width: 100%;
   background-color: #000000;
+  border-radius: 5px;
+  margin-bottom: 10px;
 `
 export const StyledFilterComponentTitle = styled.h1`
   color: #ffef00;
@@ -46,6 +48,7 @@ export const StyledFilterDivContainer = styled.div`
   bottom: 0;
   padding: 10px;
   align-self: center;
+  border-radius: 5px;
 `;
 
 export const StyledTextFieldDiv = styled.div`
@@ -55,6 +58,7 @@ export const StyledTextFieldDiv = styled.div`
   width: 100%;
   height: 10%;
   padding: 5px;
+  font-size: 18px;
 `;
 
 export const StyledInput = styled.input`
@@ -86,6 +90,7 @@ export const StyledDiv = styled.div`
   flex-direction: row;
   width: 100%;
   padding: 5px;
+  margin-bottom: 5px;
 `;
 
 export const StyledButton = styled.button`
@@ -122,9 +127,9 @@ export const StyledDropRightOption = styled.li`
   text-align: center;
   list-style: none;
   display: block;
-  padding: 5px;
+  padding: 7px;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
 
   &:hover {
@@ -154,7 +159,7 @@ export const StyledDropdownOption = styled.li`
   display: block;
   padding: 5px;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
 
   &:hover {
