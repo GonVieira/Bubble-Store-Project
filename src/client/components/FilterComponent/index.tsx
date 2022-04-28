@@ -31,48 +31,43 @@ const FilterComponent = ({
   setVehiclesArray,
 }: any) => {
   const navigate = useNavigate();
-  const [filterIsOpen, setFilterIsOpen] = useState(false);
-  const [carCategoriesIsOpen, setCarCategoriesIsOpen] = useState(false);
+  const [filterIsOpen, setFilterIsOpen] = useState(true);
+  const [thirdLevelCategoriesIsOpen, setThirdLevelCategoriesIsOpen] =
+    useState(false);
+  const [carCategoriesIsOpen, setCarCategoriesIsOpen] = useState(true);
   const [motorcycleCategoriesIsOpen, setMotorcycleCategoriesIsOpen] =
     useState(false);
   const [allVehiclesArray] = useState(Object.entries(vehicles));
-  //const [firstLevelCategories, setFirstLevelCategories] = useState<any>([]);
   const [carCategory, setCarCategory] = useState<any>([]);
   const [motorcycleCategory, setMotorcycleCategory] = useState<any>([]);
-  const [thirdLevelCategories, setThirdLevelCategories] = useState<any>([]);
+  const [categoryValue, setCategoryValue] = useState<any>();
+  const [firstLevelValue, setFirstLevelValue] = useState<any>();
   let ref = useRef<any>();
-
-  const filterToggling = () => setFilterIsOpen(!filterIsOpen);
 
   //CATEGORIES
   useEffect(() => {
-    //let uniqueArray: any[] = [];
     let carCategoriesArray: any[] = [];
     let motorcycleCategoriesArray: any[] = [];
 
     allVehiclesArray.filter(([key, value]: any) => {
-      /*
-      if (uniqueArray.indexOf(value.category[0]) === -1) {
-        uniqueArray.push(value.category[0]);
-      }
-*/
-      //DISTRIBUTE SECOND LEVEL CATEGORIES IN THEIR ARRAYS
+      //DISTRIBUTE CATEGORIES IN THEIR ARRAYS
       if (value.category[0] === "Car") {
         if (carCategoriesArray.indexOf(value.category[1]) === -1) {
           carCategoriesArray.push(value.category[1]);
         }
       }
       if (value.category[0] === "Motorcycle") {
-        if (motorcycleCategoriesArray.indexOf(value.category[1] === -1)) {
+        if (motorcycleCategoriesArray.indexOf(value.category[1]) === -1) {
           motorcycleCategoriesArray.push(value.category[1]);
         }
       }
     });
     setCarCategory([...carCategoriesArray]);
     setMotorcycleCategory([...motorcycleCategoriesArray]);
-    //setFirstLevelCategories([...uniqueArray]);
+    console.log(motorcycleCategoriesArray);
   }, [allVehiclesArray]);
 
+  //DETECT MOUSE CLICKS OUTSIDE
   useEffect(() => {
     const handler = (event: { target: any }) => {
       if (filterIsOpen && ref.current && !ref.current.contains(event.target)) {
@@ -85,6 +80,46 @@ const FilterComponent = ({
       document.removeEventListener("mousedown", handler);
     };
   }, [filterIsOpen]);
+
+  //THIRD LEVEL CATEGORIES
+  const thirdLevelCategories = (
+    firstLevelValue: any,
+    secondLevelValue: any
+  ) => {
+    let thirdLevelCategoriesValues: any[] = [];
+
+    allVehiclesArray.filter(([key, value]: any) => {
+      if (value.category[1] === secondLevelValue) {
+        if (thirdLevelCategoriesValues.indexOf(value.category[2]) === -1) {
+          thirdLevelCategoriesValues.push(value.category[2]);
+        }
+      }
+    });
+
+    return thirdLevelCategoriesValues.map((value: any) => {
+      return (
+        <StyledDropRightOption
+          onClick={(e) => {
+            e.stopPropagation();
+            setFilterIsOpen(false);
+            setCarCategoriesIsOpen(false);
+            setThirdLevelCategoriesIsOpen(false);
+            navigate(
+              `${firstLevelValue}/${secondLevelValue.toLowerCase()}/${value.toLowerCase()}`
+            );
+          }}
+          onMouseEnter={(e) => {
+            setThirdLevelCategoriesIsOpen(true);
+          }}
+          onMouseLeave={(e) => {
+            setThirdLevelCategoriesIsOpen(false);
+          }}
+        >
+          {value}
+        </StyledDropRightOption>
+      );
+    });
+  };
 
   return (
     <>
@@ -115,7 +150,9 @@ const FilterComponent = ({
             {filterIsOpen && (
               //CAR BUTTON
               <StyledDropdownOptionsContainer
-                onClick={() => setFilterIsOpen((prev) => !prev)}
+                onClick={() => {
+                  setFilterIsOpen((prev) => !prev);
+                }}
               >
                 <StyledDropdownOption
                   onClick={() => navigate(`/vehicles/car`)}
@@ -141,18 +178,35 @@ const FilterComponent = ({
                             }}
                             onMouseEnter={(e) => {
                               setCarCategoriesIsOpen(true);
+                              setCategoryValue(value);
+                              setFirstLevelValue("car");
+                              setThirdLevelCategoriesIsOpen(true);
                             }}
                             onMouseLeave={(e) => {
+                              setThirdLevelCategoriesIsOpen(false);
+                              setCategoryValue([]);
                               setCarCategoriesIsOpen(false);
                             }}
                           >
                             {value}
+                            <IoMdArrowDropright
+                              style={{ verticalAlign: "middle" }}
+                            />
+                            <StyledDropRightOptionsContainer>
+                              {thirdLevelCategoriesIsOpen &&
+                                value === categoryValue &&
+                                thirdLevelCategories(
+                                  firstLevelValue,
+                                  categoryValue
+                                )}
+                            </StyledDropRightOptionsContainer>
                           </StyledDropRightOption>
                         );
                       })}
                   </StyledDropRightOptionsContainer>
                 </StyledDropdownOption>
 
+                {/**MOTORCYCLE MENU */}
                 <StyledDropdownOption
                   onClick={(e) => navigate(`/vehicles/motorcycle`)}
                   onMouseEnter={(e) => {
@@ -176,13 +230,29 @@ const FilterComponent = ({
                               navigate(`motorcycle/${value.toLowerCase()}`);
                             }}
                             onMouseEnter={(e) => {
-                              setMotorcycleCategoriesIsOpen(true);
+                              setCarCategoriesIsOpen(true);
+                              setCategoryValue(value);
+                              setFirstLevelValue("motorcycle");
+                              setThirdLevelCategoriesIsOpen(true);
                             }}
                             onMouseLeave={(e) => {
-                              setMotorcycleCategoriesIsOpen(false);
+                              setThirdLevelCategoriesIsOpen(false);
+                              setCategoryValue([]);
+                              setCarCategoriesIsOpen(false);
                             }}
                           >
                             {value}
+                            <IoMdArrowDropright
+                              style={{ verticalAlign: "middle" }}
+                            />
+                            <StyledDropRightOptionsContainer>
+                              {thirdLevelCategoriesIsOpen &&
+                                value === categoryValue &&
+                                thirdLevelCategories(
+                                  firstLevelValue,
+                                  categoryValue
+                                )}
+                            </StyledDropRightOptionsContainer>
                           </StyledDropRightOption>
                         );
                       })}
