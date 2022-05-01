@@ -97,7 +97,7 @@ export const StyledFilterAndCarsContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 100%;
+  height: 346px;
   width: 95%;
   flex-direction: row;
 `

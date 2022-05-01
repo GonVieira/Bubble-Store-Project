@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   StyledLink,
   StyledHeaderContentDiv,
@@ -9,8 +9,11 @@ import {
   StyledHeaderButton,
 } from "./HeaderStyledComponents/style";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import CartComponent from "../CartComponent/index";
 
 const Header = () => {
+  const [active, setActive] = useState(true);
+
   return (
     <>
       <StyledHeaderContentDiv>
@@ -20,7 +23,8 @@ const Header = () => {
           </StyledLink>
           <StyledHeaderMainTitle>BUBBLE STORE</StyledHeaderMainTitle>
           <StyledHeaderButton>
-            <AiOutlineShoppingCart color="#ffef00" size="4rem" />
+            <AiOutlineShoppingCart color="#ffef00" size="4rem"
+            onClick={() => setActive(active ? false : true)}/>
           </StyledHeaderButton>
         </StyledContentTabsTop>
         <StyledContentTabs>
