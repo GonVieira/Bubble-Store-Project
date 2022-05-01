@@ -88,7 +88,6 @@ const Product = () => {
     }
   }, [category1, category2, category3]);
 
-
   //GET CURRENT POSTS
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -155,7 +154,13 @@ const Product = () => {
     <>
       <StyledBedCrumDiv>{bedCrum()}</StyledBedCrumDiv>
       <StyledFilterAndCarsContainer>
-        <FilterComponent sortType={sortType} setSortType={setSortType} vehiclesArray={vehiclesArray} setVehiclesArray={setVehiclesArray}/>
+        <FilterComponent
+          setCurrentPage={setCurrentPage}
+          sortType={sortType}
+          setSortType={setSortType}
+          vehiclesArray={vehiclesArray}
+          setVehiclesArray={setVehiclesArray}
+        />
         <StyledProductListBody>
           {currentPosts.map(([key, value]: any) => {
             return (

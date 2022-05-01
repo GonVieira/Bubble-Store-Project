@@ -23,18 +23,20 @@ import {
   StyledFilterComponentTitle,
   StyledFilterComponentTitleDiv,
 } from "./FilterStyledComponents/style";
+import { avatarGroupClasses } from "@mui/material";
 
 const FilterComponent = ({
+  setCurrentPage,
   sortType,
   setSortType,
   vehiclesArray,
   setVehiclesArray,
 }: any) => {
   const navigate = useNavigate();
-  const [filterIsOpen, setFilterIsOpen] = useState(true);
+  const [filterIsOpen, setFilterIsOpen] = useState(false);
   const [thirdLevelCategoriesIsOpen, setThirdLevelCategoriesIsOpen] =
     useState(false);
-  const [carCategoriesIsOpen, setCarCategoriesIsOpen] = useState(true);
+  const [carCategoriesIsOpen, setCarCategoriesIsOpen] = useState(false);
   const [motorcycleCategoriesIsOpen, setMotorcycleCategoriesIsOpen] =
     useState(false);
   const [allVehiclesArray] = useState(Object.entries(vehicles));
@@ -42,7 +44,14 @@ const FilterComponent = ({
   const [motorcycleCategory, setMotorcycleCategory] = useState<any>([]);
   const [categoryValue, setCategoryValue] = useState<any>();
   const [firstLevelValue, setFirstLevelValue] = useState<any>();
+  const [inputText, setInputText] = useState("");
   let ref = useRef<any>();
+
+  let inputHandler = (e: { target: { value: string } }) => {
+    navigate("");
+    var lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
 
   //CATEGORIES
   useEffect(() => {
@@ -64,8 +73,22 @@ const FilterComponent = ({
     });
     setCarCategory([...carCategoriesArray]);
     setMotorcycleCategory([...motorcycleCategoriesArray]);
-    console.log(motorcycleCategoriesArray);
   }, [allVehiclesArray]);
+
+  //SEARCH BAR
+  useEffect(() => {
+    setCurrentPage(1);
+    console.log(inputText);
+    if (inputText === "") {
+      setVehiclesArray(allVehiclesArray);
+    }
+    if (inputText !== "") {
+      const filteredArray = allVehiclesArray.filter(([key, value]: any) => {
+        return value.name.toLowerCase().includes(inputText);
+      });
+      setVehiclesArray(filteredArray);
+    }
+  }, [inputText]);
 
   //DETECT MOUSE CLICKS OUTSIDE
   useEffect(() => {
@@ -128,7 +151,12 @@ const FilterComponent = ({
           <StyledFilterComponentTitle>Filters</StyledFilterComponentTitle>
         </StyledFilterComponentTitleDiv>
         <StyledTextFieldDiv>
-          <StyledInput type="text" placeholder="Search By Name" />
+          <StyledInput
+            type="text"
+            placeholder="Search By Name"
+            value={inputText}
+            onChange={inputHandler}
+          />
         </StyledTextFieldDiv>
         <SortComponent
           sortType={sortType}

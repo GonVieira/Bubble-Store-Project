@@ -32,11 +32,15 @@ const Pagination = ({
   return (
     <>
       <SyledPaginationDiv>
-        <StyledPagButton onClick={previousPage}>&#60;</StyledPagButton>
+        {currentPage !== 1 && (
+          <StyledPagButton onClick={previousPage}>&#60;</StyledPagButton>
+        )}
         <StyledNumberText>
           {currentPage}/{pageNumbers.length}
         </StyledNumberText>
-        <StyledPagButton onClick={nextPage}>&#62;</StyledPagButton>
+        {currentPage < pageNumbers.length && (
+          <StyledPagButton onClick={nextPage}>&#62;</StyledPagButton>
+        )}
       </SyledPaginationDiv>
     </>
   );

@@ -12,6 +12,7 @@ export const StyledBedCrumDiv = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
+  margin-left: 200px;
 `
 export const StyledBedCrumAnchor = styled.a`
   display: flex;

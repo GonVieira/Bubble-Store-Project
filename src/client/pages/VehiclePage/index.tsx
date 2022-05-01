@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import vehicles from "../../../vehicles.json";
 import { SyledTitle } from "../../components/GlobalStyledComponents/index";
@@ -29,6 +29,7 @@ const VehiclePage = () => {
   const [selectedImg, setSelectedImg] = useState(1);
   const { category1, category2, category3 } = useParams();
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     if (key !== "") {
