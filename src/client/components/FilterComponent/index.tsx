@@ -78,7 +78,6 @@ const FilterComponent = ({
   //SEARCH BAR
   useEffect(() => {
     setCurrentPage(1);
-    console.log(inputText);
     if (inputText === "") {
       setVehiclesArray(allVehiclesArray);
     }

@@ -69,10 +69,6 @@ export const StyledHeaderButton = styled.button`
   height: 70%;
   padding: 5px;
   cursor: pointer;
-
-  &:hover {
-    background-color: #FF003C;
-  }
 `;
 
 export const StyledSvgContainer = styled.div`
@@ -80,4 +76,13 @@ export const StyledSvgContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
+`;
+
+export const StyledCartContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+  margin-right: 10px;
 `;

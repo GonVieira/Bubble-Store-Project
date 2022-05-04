@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import vehicles from "../../../vehicles.json";
 import { SyledTitle } from "../../components/GlobalStyledComponents/index";
+import { GlobalContextCart } from "../../../context/Context";
 import {
   StyledProductPageTopText,
   StyledProductPageBody,
@@ -23,13 +24,29 @@ import {
   StyledBedCrumArrow,
 } from "../../components/GlobalStyledComponents/index";
 
+type obj = {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  img: string[];
+  category: {};
+};
+
 const VehiclePage = () => {
   const [product, setProduct] = useState<any>([]);
   const { key } = useParams();
   const [selectedImg, setSelectedImg] = useState(1);
   const { category1, category2, category3 } = useParams();
+  const { cart, setCart } = useContext(GlobalContextCart);
   const navigate = useNavigate();
-  
+
+  function handleClick() {
+    setCart([...cart, product[0]]);
+    window.alert("Product added to cart.");
+  }
+
+  console.log(cart);
 
   useEffect(() => {
     if (key !== "") {
@@ -185,7 +202,9 @@ const VehiclePage = () => {
                   {value.description}
                 </StyledVehicleDescriptionText>
                 <StyledCheckoutBtnDiv>
-                  <StyledCheckoutButton>Add to cart!</StyledCheckoutButton>
+                  <StyledCheckoutButton onClick={() => handleClick()}>
+                    Add to cart!
+                  </StyledCheckoutButton>
                 </StyledCheckoutBtnDiv>
               </StyledVehicleTextDiv>
             </StyledVehicleDetailsDiv>
